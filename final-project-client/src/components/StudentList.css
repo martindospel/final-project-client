@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.nav__options {
+  display: flex;
+  gap: 4px
+}
+
+.nav__search {
+  width: 100%;
+}
+
+.student-listbox {
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.nav__btn {
+  width: 100%;
+}

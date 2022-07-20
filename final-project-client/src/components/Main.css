@@ -1,0 +1,12 @@
+.main {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.main__student--name{
+    padding: 4px;
+}
