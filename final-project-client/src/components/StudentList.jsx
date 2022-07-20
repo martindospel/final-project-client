@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListBox } from 'primereact/listbox';
 import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
 import './StudentList.css';
 
 function StudentList() {
@@ -21,7 +22,6 @@ function StudentList() {
     { uuid: '14', name: 'Helicopter Martina Apachi XIII' },
     { uuid: '15', name: 'Martin with pronouns' },
     { uuid: '16', name: 'Justin Bieber' }
-
   ];
 
   // function that displays student in the middle when clicked, student button stays clicked (different color)
@@ -43,6 +43,12 @@ function StudentList() {
           optionValue={"uuid"}
           onChange={() => { }} />
       </div>
+      <Dialog header="Add a student" visible={true} style={{ width: '50vw' }} footer={renderFooter('displayBasic')} onHide={() => onHide('displayBasic')}>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </Dialog>
     </nav>
   )
 }
