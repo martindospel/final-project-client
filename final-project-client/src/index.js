@@ -5,12 +5,12 @@ import reportWebVitals from './reportWebVitals';
 import store from './store';
 import { Provider } from 'react-redux'; 
 import PrimeReact from 'primereact/api';
-import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/themes/lara-light-teal/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import './index.css';   
 
-PrimeReact.ripple = true;      
+PrimeReact.ripple = true;  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

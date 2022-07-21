@@ -28,7 +28,7 @@
 }
 
 .timeline--fields__box:nth-child(even) {
-  background: whitesmoke;
+  background: rgba(173, 203, 216, 0.2);
 }
 
 .timeline__calendar {

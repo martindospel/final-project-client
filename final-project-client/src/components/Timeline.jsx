@@ -113,8 +113,8 @@ function Timeline() {
     present: true,
     goodPerf: true,
     goodBehave: true,
-    perfComment: 'fake comment',
-    behaveComment: 'fake comment',
+    perfComment: 'fake comment is forbiden!',
+    behaveComment: 'a pcsycopad',
   }];
   return (
     <div className='timeline'>

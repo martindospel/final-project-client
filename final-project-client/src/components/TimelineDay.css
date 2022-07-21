@@ -1,9 +1,19 @@
 .timeline__day {
     width: 60px;
+    user-select: none;
+    cursor: pointer;
 }
 
-.timeline__day:nth-child(even) {
-    background: whitesmoke;
+.timeline__day:hover {
+    background-color: rgba(79, 141, 137, 0.5);
+}
+
+.timeline__day:nth-child(odd) {
+    background: rgba(230, 230, 230, 0.2);
+}
+
+.timeline__day:nth-child(odd):hover {
+    background-color: rgba(79, 141, 137, 0.5);
 }
 
 .timeline__day--date {
@@ -12,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25%;
+    height: 24.7%;
 }
 
 .timeline__circle {
@@ -33,4 +43,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.timeline__box:nth-child(even) {
+    background: rgba(173, 203, 216, 0.2);
+}
+
+.timeline__popup {
+    max-width: 34%;
+    max-height: auto;
+}
+
+.timeline__popup>* {
+    box-shadow: none !important;
 }

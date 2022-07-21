@@ -2,6 +2,8 @@ import React from 'react';
 import { ListBox } from 'primereact/listbox';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import { InputText } from 'primereact/inputtext';
+import { Calendar } from 'primereact/calendar';
 import './StudentList.css';
 
 function StudentList() {
@@ -20,11 +22,9 @@ function StudentList() {
     { uuid: '12', name: 'Helicopter Martina Apachi IV' },
     { uuid: '13', name: 'Ja Rule IV' },
     { uuid: '14', name: 'Helicopter Martina Apachi XIII' },
-    { uuid: '15', name: 'Martin with pronouns' },
+    { uuid: '15', name: 'Martin' },
     { uuid: '16', name: 'Justin Bieber' }
   ];
-
-  // function that displays student in the middle when clicked, student button stays clicked (different color)
 
   return (
     ///  ALWAYS REMEMBER THAT MOST OF THE ARRAY FUNCTIONS RECEIVE A FUNCTION ❗️
@@ -36,18 +36,35 @@ function StudentList() {
       <div className='student-list'>
         <ListBox
           filter
+          itemTemplate={(option) => {
+            return (<div className='student-list-item'>
+              <i className='pi pi-heart-fill'
+                style={{ marginRight: '10px', display: 'inline-block' }}>
+              </i>{option.name}
+            </div>);
+          }}
           filterPlaceholder='Search students...'
           className='student-listbox'
           options={studentList}
           optionLabel={"name"}
-          optionValue={"uuid"}
+          // optionValue={"uuid"}
           onChange={() => { }} />
       </div>
-      <Dialog header="Add a student" visible={true} style={{ width: '50vw' }} footer={renderFooter('displayBasic')} onHide={() => onHide('displayBasic')}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <Dialog header="Add a student" visible={false} footer={<Button label='Add Student' />} resizable={false}>
+        <div className='admission__form'>
+          <div>
+            <label htmlFor="name" className="admission__form--option">Name</label>
+            <InputText id="name" className="admission__form--input" />
+          </div>
+          <div>
+            <label htmlFor="gender" className="admission__form--option">Gender</label>
+            <InputText id="gender" className="admission__form--input" /> <br />
+          </div>
+          <div>
+            <label htmlFor="dob" className="admission__form--option">Date of Birth</label>
+            <Calendar id="datetemplate" value={new Date()} showIcon />
+          </div>
+        </div>
       </Dialog>
     </nav>
   )
