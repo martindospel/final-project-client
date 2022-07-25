@@ -1,8 +1,11 @@
-import React from "react";
-import "./TimelineDay.css";
+import React, { useState } from "react";
 import { Tooltip } from "primereact/tooltip";
+import "./TimelineDay.css";
 
 function TimelineDay({ timeline }) {
+  const [showPerfComment, setShowPerfComment] = useState(null);
+  const [showBehaveComment, setShowBehaveComment] = useState(null);
+
   const convertDate = (date) => {
     const dateObj = date?.split("T")[0].split("-");
     const day = dateObj?.[2];
@@ -62,21 +65,33 @@ function TimelineDay({ timeline }) {
         <div className={"timeline__circle " + (!timeline.present ? "timeline__circle--off" : "")}></div>
       </div>
       {timeline.present && (
-        <div className="timeline__box timeline__perf">
+        <div
+          className="timeline__box timeline__perf"
+          onMouseEnter={() => setShowPerfComment(true)}
+          onMouseLeave={() => setShowPerfComment(false)}
+        >
           <div className={"timeline__circle " + (!timeline.goodPerf ? "timeline__circle--off" : "")}></div>
-          <Tooltip className="timeline__popup" target=".timeline__perf" mouseTrack mouseTrackLeft={10}>
-            <h4>Performance Comment: </h4>
-            <p>{timeline.perfComment}</p>
-          </Tooltip>
+          {showPerfComment && (
+            <Tooltip className="timeline__popup" target=".timeline__perf" mouseTrack mouseTrackLeft={10}>
+              <h4>Performance Comment: </h4>
+              <p>{timeline.perfComment}</p>
+            </Tooltip>
+          )}
         </div>
       )}
       {timeline.present && (
-        <div className="timeline__box timeline__behave">
+        <div
+          className="timeline__box timeline__behave"
+          onMouseEnter={() => setShowBehaveComment(true)}
+          onMouseLeave={() => setShowBehaveComment(false)}
+        >
           <div className={"timeline__circle " + (!timeline.goodBehave ? "timeline__circle--off" : "")}></div>
-          <Tooltip className="timeline__popup" target=".timeline__behave" mouseTrack mouseTrackLeft={10}>
-            <h4>Behaviour Comment: </h4>
-            <p>{timeline.behaveComment}</p>
-          </Tooltip>
+          {showBehaveComment && (
+            <Tooltip className="timeline__popup" target=".timeline__behave" mouseTrack mouseTrackLeft={10}>
+              <h4>Behaviour Comment: </h4>
+              <p>{timeline.behaveComment}</p>
+            </Tooltip>
+          )}
         </div>
       )}
     </div>

@@ -44,7 +44,7 @@ export default (function () {
       const res = await fetch(
         `${baseUrl}api/students/${studentUuid}/${timelineUuid}`,
         {
-          method: "POST",
+          method: "PATCH",
           body: JSON.stringify({
             present,
             goodBehave,

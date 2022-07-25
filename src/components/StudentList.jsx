@@ -9,18 +9,19 @@ import { addStudentAction, fetchOneStudentAction } from "../slices/studentSlice"
 import "./StudentList.css";
 
 function StudentList() {
-  const [nameValue, setNameValue] = useState('');
-  const [dobValue, setDobValue] = useState('');
-  const [genderValue, setGenderValue] = useState('');
-  const [showAddStudent, setShowAddStudent] = useState(false);
-
   const dispatch = useDispatch();
+
+  const [nameValue, setNameValue] = useState("");
+  const [dobValue, setDobValue] = useState("");
+  const [genderValue, setGenderValue] = useState("");
+  const [showAddStudent, setShowAddStudent] = useState(false);
 
   const studentList = useSelector((store) => store.class?.currentClass?.students);
   const currentClass = useSelector((store) => store.class?.currentClass?.uuid);
   const currentStudent = useSelector((store) => store.students?.currentStudent?.uuid);
 
   const addStudent = () => {
+    if (!dobValue || !nameValue || !genderValue) return;
     dispatch(
       addStudentAction({
         classUuid: currentClass,
@@ -29,14 +30,13 @@ function StudentList() {
         gender: genderValue,
       })
     );
-    setNameValue('');
-    setDobValue('');
-    setGenderValue('');
+    setNameValue("");
+    setDobValue("");
+    setGenderValue("");
     setShowAddStudent(false);
-  };
+  }; 
 
   return (
-    
     <nav className="nav">
       <div className="nav__options">
         <Button className="nav__btn p-button-sm" label="Change class" icon="pi pi-sitemap" />
@@ -59,7 +59,9 @@ function StudentList() {
           value={currentStudent}
           optionLabel={"name"}
           optionValue={"uuid"}
-          onChange={(e) => {dispatch(fetchOneStudentAction(e.value))}}
+          onChange={(e) => {
+            dispatch(fetchOneStudentAction(e.value));
+          }}
         />
       </div>
       <Dialog
