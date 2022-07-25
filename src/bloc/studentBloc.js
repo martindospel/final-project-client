@@ -1,13 +1,15 @@
+import { baseUrl } from "../config";
+
 export default (function () {
   return {
     //get one student
     fetchOneStudent: async (uuid) => {
-      const res = await fetch(`http://localhost:4321/api/students/${uuid}`)
+      const res = await fetch(`${baseUrl}api/students/${uuid}`)
       return res.json();
     },
     //add one student
     addStudent: async ({ classUuid, studentName, dob, gender }) => {
-      const res = await fetch(`http://localhost:4321/api/students/`, {
+      const res = await fetch(`${baseUrl}api/students/`, {
         method: "POST",
         body: JSON.stringify({ classUuid, studentName, dob, gender }),
         headers: { "Content-Type": "application/json" },
@@ -19,7 +21,7 @@ export default (function () {
       studentUuid,
       { present, goodBehave, goodPerf, behaveComment, perfComment, date }
     ) => {
-      const res = await fetch(`http://localhost:4321/api/students/${studentUuid}`, {
+      const res = await fetch(`${baseUrl}api/students/${studentUuid}`, {
         method: "POST",
         body: JSON.stringify({
           present,
@@ -40,7 +42,7 @@ export default (function () {
       { present, goodBehave, goodPerf, behaveComment, perfComment, date }
     ) => {
       const res = await fetch(
-        `http://localhost:4321/api/students/${studentUuid}/${timelineUuid}`,
+        `${baseUrl}api/students/${studentUuid}/${timelineUuid}`,
         {
           method: "POST",
           body: JSON.stringify({

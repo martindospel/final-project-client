@@ -9,7 +9,7 @@ function Main() {
 
   return (
     <div className="main">
-      <h1 className="main__student--name">{student?.name}</h1>
+      <h1 className="main__student--name">{student?.studentName}</h1>
       <Timeline />
       <Form />
     </div>

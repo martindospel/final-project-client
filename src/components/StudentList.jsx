@@ -29,6 +29,9 @@ function StudentList() {
         gender: genderValue,
       })
     );
+    setNameValue('');
+    setDobValue('');
+    setGenderValue('');
     setShowAddStudent(false);
   };
 

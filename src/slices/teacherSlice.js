@@ -5,7 +5,7 @@ const initialState = {
   currentTeacher: null,
 };
 
-//get one teacher
+// get one teacher
 export const fetchOneTeacherAction = createAsyncThunk(
   "addTeacher",
   async (uuid) => {

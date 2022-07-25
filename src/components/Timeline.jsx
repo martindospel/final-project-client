@@ -1,7 +1,7 @@
 import React from "react";
 import TimelineDay from "./TimelineDay";
+import { useSelector } from "react-redux";
 import "./Timeline.css";
-import { useSelector } from "react-redux"
 
 function Timeline() {
   const timeline = useSelector((store) => store.students?.currentStudent?.assessments);

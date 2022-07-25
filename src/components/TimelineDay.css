@@ -20,6 +20,7 @@
     padding: 10px;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 24.7%;
@@ -56,4 +57,18 @@
 
 .timeline__popup>* {
     box-shadow: none !important;
+}
+
+.timeline-cal__month {
+  font-size: 10px;
+}
+
+.timeline-cal__day {
+  font-size: 15px;
+  font-weight: bold;
+  transform: scale(1.2);
+}
+
+.timeline-cal__year {
+  font-size: 10px;
 }
