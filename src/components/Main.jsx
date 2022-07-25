@@ -1,7 +1,7 @@
 import React from "react";
 import Timeline from "./Timeline";
 import Form from "./Form";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import "./Main.css";
 
 function Main() {
