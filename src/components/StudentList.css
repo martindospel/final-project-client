@@ -36,6 +36,6 @@
   display: inline-block;
 }
 
-.p-listbox-item:nth-child(even) {
+/* .p-listbox-item:nth-child(even) {
   background-color: rgba(125, 125, 125, 0.08) !important;
-}
+} */

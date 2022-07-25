@@ -1,186 +1,26 @@
-import React from 'react';
-import TimelineDay from './TimelineDay';
-import './Timeline.css'
+import React from "react";
+import TimelineDay from "./TimelineDay";
+import "./Timeline.css";
+import { useSelector } from "react-redux"
 
 function Timeline() {
-  const timeline = [{
-    uuid: '1',
-    date: '22nd June',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '2',
-    date: '23rd June',
-    present: true,
-    goodPerf: true,
-    goodBehave: false,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '3',
-    date: '24th June',
-    present: true,
-    goodPerf: false,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '4',
-    date: '25th June',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '5',
-    date: '26th June',
-    present: true,
-    goodPerf: false,
-    goodBehave: false,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '6',
-    date: '27th June',
-    present: false,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '7',
-    date: '28th June',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '8',
-    date: '29th June',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '9',
-    date: '30th June',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '10',
-    date: '1st July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '11',
-    date: '2nd July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '13',
-    date: '3rd July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '14',
-    date: '4th July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '15',
-    date: '5th July',
-    present: true,
-    goodPerf: false,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '16',
-    date: '6th July',
-    present: true,
-    goodPerf: true,
-    goodBehave: false,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '17',
-    date: '7th July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '18',
-    date: '8th July',
-    present: false,
-    goodPerf: false,
-    goodBehave: false,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '19',
-    date: '9th July',
-    present: true,
-    goodPerf: false,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '20',
-    date: '10th July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }, {
-    uuid: '21',
-    date: '11th July',
-    present: true,
-    goodPerf: true,
-    goodBehave: true,
-    perfComment: 'comment for performance goes here',
-    behaveComment: 'comment for behaviour goes here',
-  }];
+  const timeline = useSelector((store) => store.students?.currentStudent?.assessments);
+
   return (
-    <div className='timeline'>
-      <div className='timeline--fields'>
-        <div className='timeline--fields__box'>Timeline</div>
-        <div className='timeline--fields__box'>Present</div>
-        <div className='timeline--fields__box'>Academic Performance</div>
-        <div className='timeline--fields__box'>Behavior</div>
+    <div className="timeline">
+      <div className="timeline--fields">
+        <div className="timeline--fields__box">Timeline</div>
+        <div className="timeline--fields__box">Present</div>
+        <div className="timeline--fields__box">Academic Performance</div>
+        <div className="timeline--fields__box">Behavior</div>
       </div>
-      <div className='timeline__calendar'>
-        {timeline.map(timelineDay =>
-          <TimelineDay
-            key={timelineDay.uuid}
-            timeline={timelineDay}
-          />
-        )}</div>
+      <div className="timeline__calendar">
+        {timeline?.map((timelineDay) => (
+          <TimelineDay key={timelineDay.uuid} timeline={timelineDay} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Timeline
+export default Timeline;

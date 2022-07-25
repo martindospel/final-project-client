@@ -5,20 +5,20 @@ import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { useSelector, useDispatch } from "react-redux";
-import { addStudentAction } from "../slices/studentSlice";
+import { addStudentAction, fetchOneStudentAction } from "../slices/studentSlice";
 import "./StudentList.css";
 
 function StudentList() {
-  const [nameValue, setNameValue] = useState();
-  const [dobValue, setDobValue] = useState();
-  const [genderValue, setGenderValue] = useState();
+  const [nameValue, setNameValue] = useState('');
+  const [dobValue, setDobValue] = useState('');
+  const [genderValue, setGenderValue] = useState('');
   const [showAddStudent, setShowAddStudent] = useState(false);
 
   const dispatch = useDispatch();
-  const studentList = useSelector(
-    (store) => store.class?.currentClass?.students
-  );
-  const currentClass = useSelector((store) => store.class.currentClass?.uuid);
+
+  const studentList = useSelector((store) => store.class?.currentClass?.students);
+  const currentClass = useSelector((store) => store.class?.currentClass?.uuid);
+  const currentStudent = useSelector((store) => store.students?.currentStudent?.uuid);
 
   const addStudent = () => {
     dispatch(
@@ -33,20 +33,11 @@ function StudentList() {
   };
 
   return (
-    ///  ALWAYS REMEMBER THAT MOST OF THE ARRAY FUNCTIONS RECEIVE A FUNCTION ❗️
+    
     <nav className="nav">
       <div className="nav__options">
-        <Button
-          className="nav__btn p-button-sm"
-          label="Change class"
-          icon="pi pi-sitemap"
-        />
-        <Button
-          className="nav__btn p-button-sm"
-          label="Add student"
-          onClick={() => setShowAddStudent(true)}
-          icon="pi pi-plus"
-        />
+        <Button className="nav__btn p-button-sm" label="Change class" icon="pi pi-sitemap" />
+        <Button className="nav__btn p-button-sm" label="Add student" onClick={() => setShowAddStudent(true)} icon="pi pi-plus" />
       </div>
       <div className="student-list">
         <ListBox
@@ -54,10 +45,7 @@ function StudentList() {
           itemTemplate={(option) => {
             return (
               <div className="student-list-item">
-                <i
-                  className="pi pi-star"
-                  style={{ marginRight: "10px", display: "inline-block" }}
-                ></i>
+                <i className="pi pi-star" style={{ marginRight: "10px", display: "inline-block" }}></i>
                 {option.name}
               </div>
             );
@@ -65,9 +53,10 @@ function StudentList() {
           filterPlaceholder="Search students..."
           className="student-listbox"
           options={studentList}
+          value={currentStudent}
           optionLabel={"name"}
-          // optionValue={"uuid"}
-          onChange={() => {}}
+          optionValue={"uuid"}
+          onChange={(e) => {dispatch(fetchOneStudentAction(e.value))}}
         />
       </div>
       <Dialog
@@ -82,12 +71,7 @@ function StudentList() {
             <label htmlFor="name" className="admission__form--option">
               Name
             </label>
-            <InputText
-              id="name"
-              value={nameValue}
-              onChange={(e) => setNameValue(e.target.value)}
-              className="admission__form--input"
-            />
+            <InputText id="name" value={nameValue} onChange={(e) => setNameValue(e.target.value)} className="admission__form--input" />
           </div>
           <div>
             <label htmlFor="gender" className="admission__form--option">
@@ -105,12 +89,7 @@ function StudentList() {
             <label htmlFor="dob" className="admission__form--option">
               Date of Birth
             </label>
-            <Calendar
-              id="datetemplate"
-              value={dobValue}
-              onChange={(e) => setDobValue(e.value)}
-              showIcon
-            />
+            <Calendar id="datetemplate" value={dobValue} onChange={(e) => setDobValue(e.value)} showIcon />
           </div>
         </div>
       </Dialog>

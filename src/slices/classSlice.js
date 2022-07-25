@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const fetchOneClassAction = createAsyncThunk(
-  "fetchOne",
+  "fetchOneClass",
   async (uuid) => {
     return await classBloc.fetchOneClass(uuid);
   }
