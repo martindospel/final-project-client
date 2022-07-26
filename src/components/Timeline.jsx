@@ -9,7 +9,7 @@ function Timeline() {
   return (
     <div className="timeline">
       <div className="timeline--fields">
-        <div className="timeline--fields__box">Timeline</div>
+        <div className="timeline--fields__box"><h3>Timeline</h3></div>
         <div className="timeline--fields__box">Present</div>
         <div className="timeline--fields__box">Academic Performance</div>
         <div className="timeline--fields__box">Behavior</div>
