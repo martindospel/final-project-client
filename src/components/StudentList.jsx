@@ -51,7 +51,7 @@ function StudentList() {
               <div className="student-list-item">
                 <i className="pi pi-star" style={{ marginRight: "10px", display: "inline-block" }}></i>
                 {option.name}
-                <DeleteStudent />
+                <DeleteStudent uuid={option.uuid} />
               </div>
             );
           }}

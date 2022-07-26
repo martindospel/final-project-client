@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+import { ConfirmDialog } from 'primereact/confirmdialog';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteStudentAction } from '../slices/studentSlice';
 import { Button } from 'primereact/button'
+import { useState } from 'react';
+
 
 
 
@@ -11,23 +13,18 @@ import { Button } from 'primereact/button'
 function DeleteStudent({ uuid }) {
     const dispatch = useDispatch();
     const currentClass = useSelector((store) => store.class?.currentClass);
-
+    const [visible, setVisible] = useState(false);
     const deleteStudent = () => {
-        confirmDialog({
-            message: 'Are you sure you want to delete the selected student?',
-            header: 'Delete',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => dispatch(
-                deleteStudentAction({ uuid, classUuid: currentClass.uuid })
-            ),
-            reject: () => { }
-        });
+        dispatch(
+            deleteStudentAction({ uuid, classUuid: currentClass.uuid })
+        )
     }
 
     return (
         <div className='delete-student'>
-            <Button onClick={deleteStudent} icon="pi pi-times" className="p-button-rounded p-button-danger" aria-label="Cancel" />
-            <ConfirmDialog></ConfirmDialog>
+            <ConfirmDialog visible={visible} onHide={() => setVisible(false)} message="Are you sure you want to delete?"
+                header="Confirmation" icon="pi pi-exclamation-triangle" accept={deleteStudent} reject={() => { }} />
+            <Button onMouseDown={() => setVisible(true)} icon="pi pi-check" label="Confirm" />
         </div>
     )
 
