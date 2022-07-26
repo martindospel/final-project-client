@@ -3,12 +3,14 @@ import React from 'react';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteStudentAction } from '../slices/studentSlice';
-import { UniqueComponentId } from 'primereact/utils';
+import { Button } from 'primereact/button'
 
 
-function DeleteStudent() {
+
+
+function DeleteStudent({ uuid }) {
     const dispatch = useDispatch();
-    const student = useSelector((store) => store.students?.currentStudent);
+    const currentClass = useSelector((store) => store.class?.currentClass);
 
     const deleteStudent = () => {
         confirmDialog({
@@ -16,7 +18,7 @@ function DeleteStudent() {
             header: 'Delete',
             icon: 'pi pi-exclamation-triangle',
             accept: () => dispatch(
-                deleteStudentAction({ uuid: student.uuid, classUuid: student.classUuid })
+                deleteStudentAction({ uuid, classUuid: currentClass.uuid })
             ),
             reject: () => { }
         });
