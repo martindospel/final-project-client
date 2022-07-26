@@ -1,38 +1,34 @@
 
 import React from 'react';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteStudentAction } from '../slices/studentSlice';
+import { UniqueComponentId } from 'primereact/utils';
+
 
 function DeleteStudent() {
+    const dispatch = useDispatch();
+    const student = useSelector((store) => store.students?.currentStudent);
+
     const deleteStudent = () => {
         confirmDialog({
             message: 'Are you sure you want to delete the selected student?',
-            header: 'Confirmation',
+            header: 'Delete',
             icon: 'pi pi-exclamation-triangle',
-            accept: () => acceptFunc(),
-            reject: () => rejectFunc()
+            accept: () => dispatch(
+                deleteStudentAction({ uuid: student.uuid, classUuid: student.classUuid })
+            ),
+            reject: () => { }
         });
     }
 
     return (
         <div className='delete-student'>
-            <Button icon="pi pi-times" className="p-button-rounded p-button-danger" aria-label="Cancel" />
+            <Button onClick={deleteStudent} icon="pi pi-times" className="p-button-rounded p-button-danger" aria-label="Cancel" />
+            <ConfirmDialog></ConfirmDialog>
         </div>
-
     )
 
 }
 
-export default DeleteStudent
-
-
-
-
-{/* <Button onClick={confirm} icon="pi pi-check" label="Confirm"></Button>
-<ConfirmDialog /> <!--required empty dialog tag --> */}
-
-<Dialog
-    header="Add a student"
-    visible={showAddStudent}
-    footer={<Button label="Delete Student" onClick={deleteStudent} />}
-    resizable={false}
-    onHide={() => setShowAddStudent(false)}
+export default DeleteStudent;
