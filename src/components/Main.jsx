@@ -1,15 +1,13 @@
 import React from "react";
 import Timeline from "./Timeline";
 import Form from "./Form";
-import { useSelector } from "react-redux";
 import "./Main.css";
+import StudentProfile from "./StudentProfile";
 
 function Main() {
-  const student = useSelector((store) => store.students.currentStudent);
-
   return (
     <div className="main">
-      <h1 className="main__student--name">{student?.studentName}</h1>
+      <StudentProfile />
       <Timeline />
       <Form />
     </div>
