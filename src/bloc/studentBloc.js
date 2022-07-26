@@ -62,5 +62,13 @@ export default (function () {
       });
       return res.json();
     },
+    //delete one student
+    deleteStudent: async (uuid) => {
+      const res = await fetch(`${baseUrl}api/students/${uuid}`, {
+        method: "DELETE"
+      })
+      return res.json();
+    },
+
   };
 })();

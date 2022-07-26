@@ -54,6 +54,12 @@ export const editStudentTimelineAction = createAsyncThunk(
   }
 );
 
+//delete one student
+export const deleteStudentAction = createAsyncThunk("deleteStudent", async ({ uuid, classUuid }, thunkAPI) => {
+  await studentBloc.deleteStudent(uuid);
+  thunkAPI.dispatch(fetchOneClassAction(classUuid));
+});
+
 //edit student profile
 export const editStudentProfileAction = createAsyncThunk(
   "editStudentProfile",
