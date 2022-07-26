@@ -6,20 +6,23 @@
 .student-profile__fields {
   display: flex;
   justify-content: stretch;
-  gap: 10em;
+  gap: 2em;
 }
 .student-profile__vertical-slices {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1em;
+  padding: 1em 3em;
   gap: 5px;
+  border-radius: 5px;
+  background-color: rgba(125, 125, 125, 0.04);
 }
 .student-profile__horizontal-slices {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 44px;
+  height: 44px;
   /* padding: .5em 0; */
 }
 .student-profile__header {
