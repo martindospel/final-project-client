@@ -7,9 +7,15 @@ const initialState = {
 
 // get one teacher
 export const fetchOneTeacherAction = createAsyncThunk(
-  "addTeacher",
+  "fetchteacher",
   async (uuid) => {
     return await teacherBloc.fetchOneTeacher(uuid);
+  }
+);
+
+// add one teacher 
+export const addOneTeacherAction = createAsyncThunk("addTeacher", async ({fullName, email}) => {
+    return await teacherBloc.addOneTeacher(fullName, email);
   }
 );
 
@@ -20,6 +26,9 @@ const teacherSlice = createSlice({
     [fetchOneTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
     },
+    [addOneTeacherAction.fulfilled]: (state, action) => {
+      state.currentTeacher = action.payload;
+    }
   },
 });
 
