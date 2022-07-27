@@ -1,0 +1,25 @@
+.statistics-page {
+  width: 100%;
+}
+
+.overview-chart {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  /* color: #0fba0f */
+}
+
+.overview-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: stretch;
+  padding: 2em;
+}
+
+.overview-stats > div {
+  display: flex;
+  width: 35vw;
+  justify-content: space-between;
+}
