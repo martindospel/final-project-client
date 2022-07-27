@@ -49,7 +49,6 @@ function StudentList() {
           itemTemplate={(option) => {
             return (
               <div className="student-list-item">
-                <i className="pi pi-star" style={{ marginRight: "10px", display: "inline-block" }}></i>
                 {option.name}
                 <DeleteStudent uuid={option.uuid} />
               </div>
