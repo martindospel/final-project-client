@@ -7,7 +7,12 @@ import { Calendar } from "primereact/calendar";
 import AddClass from "./AddClass";
 import { useSelector, useDispatch } from "react-redux";
 import { addStudentAction, fetchOneStudentAction } from "../slices/studentSlice";
+<<<<<<< HEAD
 import "./AddClass.css";
+=======
+import "./StudentList.css";
+import DeleteStudent from "./DeleteStudent";
+>>>>>>> main
 
 function StudentList() {
   const dispatch = useDispatch();
@@ -35,7 +40,7 @@ function StudentList() {
     setDobValue("");
     setGenderValue("");
     setShowAddStudent(false);
-  }; 
+  };
 
   return (
     <nav className="nav">
@@ -49,8 +54,8 @@ function StudentList() {
           itemTemplate={(option) => {
             return (
               <div className="student-list-item">
-                <i className="pi pi-star" style={{ marginRight: "10px", display: "inline-block" }}></i>
                 {option.name}
+                <DeleteStudent uuid={option.uuid} />
               </div>
             );
           }}

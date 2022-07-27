@@ -6,6 +6,7 @@ export default (function () {
       const res = await fetch(`${baseUrl}api/classes/${uuid}`);
       return res.json();
     },
+<<<<<<< HEAD
 
     createOneClass: async (teacherUuid, className) => {
       await fetch(`${baseUrl}api/add/${teacherUuid}`), {
@@ -16,5 +17,11 @@ export default (function () {
       return res.json();
     },
 
+=======
+    fetchStatistics: async (uuid) => {
+      const res = await fetch(`${baseUrl}api/classes/statistics/${uuid}`);
+      return res.json();
+    }
+>>>>>>> main
   };
 })();
