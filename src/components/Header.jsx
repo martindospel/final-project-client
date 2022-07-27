@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import { useDispatch } from "react-redux";
 import { resetTeacher } from "../slices/teacherSlice";
 import { resetCurrentStudent } from "../slices/studentSlice";
+import { resetClasses } from "../slices/classSlice";
 import ChangeClass from "./ChangeClass";
 
 function Header() {
@@ -22,7 +23,15 @@ function Header() {
           onClick={() => dispatch(resetCurrentStudent())}
           className="p-button-outlined p-button-sm"
         />
-        <Button label="Logout" icon="pi pi-sign-out" onClick={() => dispatch(resetTeacher())} className="p-button-outlined p-button-sm" />
+        <Button
+          label="Logout"
+          icon="pi pi-sign-out"
+          onClick={() => {
+            dispatch(resetTeacher());
+            dispatch(resetClasses());
+          }}
+          className="p-button-outlined p-button-sm"
+        />
       </div>
     </div>
   );

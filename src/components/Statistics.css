@@ -3,19 +3,18 @@
 }
 
 .overview-chart {
-  border: 1px solid rgb(217, 217, 217);
+  border: 1px solid rgba(125, 125, 125, 0.4);
   border-radius: 5px;
   padding: 20px;
   width: 100%;
-  /* color: #0fba0f */
 }
 
 .overview-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 1em;
   justify-content: stretch;
-  padding: 2em;
+  padding: 1em;
 }
 
 .overview-stats > div {

@@ -79,7 +79,7 @@ function ChangeClass() {
 
       <Button
         className="p-button-sm p-button-outlined"
-        label={"Chosen class: " + currentClass.className}
+        label={currentClass ? "Chosen class: " + currentClass?.className : "Choose a class"}
         onClick={() => setClassesListVisible(true)}
         icon="pi pi-sitemap"
       />

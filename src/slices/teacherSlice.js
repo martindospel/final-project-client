@@ -27,12 +27,14 @@ const teacherSlice = createSlice({
   extraReducers: {
     [loginTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
+      state.loginRejected = false;
     },
     [loginTeacherAction.rejected]: (state) => {
       state.loginRejected = true;
     },
     [signupTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
+      state.loginRejected = false;
     },
   },
 });

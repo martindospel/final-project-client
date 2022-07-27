@@ -1,4 +1,8 @@
 .entry-page {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -7,6 +11,7 @@
     min-height: 24em;
     padding: -2px;
     height: 100vh;
+    width: 100%;
 }
 
 .entry-page__title {
@@ -16,11 +21,9 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-/* .entry-page__inputs {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-} */
+.entry-page__inputs {
+  padding: 10px;
+}
 
 .entry-page__button-spacing {
     margin-left: 0;
@@ -35,6 +38,15 @@
     animation:pathAnim-1 4s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+}
+.entry-page__login-form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 @keyframes pathAnim-1{

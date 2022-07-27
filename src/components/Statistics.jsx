@@ -24,7 +24,7 @@ function Statistics() {
           },
           {
             label: "Good Performance Rate",
-            backgroundColor: "#FFA726",
+            backgroundColor: "#0ecbb5",
             data: statistics?.goodPerfRateWeekly,
           },
           {
@@ -73,19 +73,19 @@ function Statistics() {
         <div className="overview-stats">
           <div>
             <p>Total number of students:</p>
-            <p>{statistics?.totalStudentCount ?? "0"}</p>
+            <p>{statistics?.totalStudentCount === "NaN" ? "0" : statistics?.totalStudentCount}</p>
           </div>
           <div>
             <p>Average Class Presence Rate</p>
-            <p>{statistics?.averagePresenceRate ?? "0"}%</p>
+            <p>{statistics?.averagePresenceRate === "NaN" ? "0" : statistics?.averagePresenceRate}%</p>
           </div>
           <div>
             <p>Average Class Good Performance Rate</p>
-            <p>{statistics?.averageGoodPerfRate ?? "0"}%</p>
+            <p>{statistics?.averageGoodPerfRate === "NaN" ? "0" : statistics?.averageGoodPerfRate}%</p>
           </div>
           <div>
             <p>Average Class Good Behaviour Rate</p>
-            <p>{statistics?.averageGoodBehaveRate ?? "0"}%</p>
+            <p>{statistics?.averageGoodBehaveRate === "NaN" ? "0" : statistics?.averageGoodBehaveRate}%</p>
           </div>
         </div>
         <Chart type="bar" data={basicData} options={basicOptions} />

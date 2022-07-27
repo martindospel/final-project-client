@@ -4,7 +4,7 @@
   width: calc(100vw - 360px);
   overflow-x: auto;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border: 1px solid rgb(217, 217, 217);
+  border: 1px solid rgba(125, 125, 125, 0.4);
   border-radius: 5px;
   min-height: 295px;
 }

@@ -34,6 +34,13 @@ export const createClassAction = createAsyncThunk(
 const classSlice = createSlice({
   name: "class",
   initialState,
+  reducers: {
+    resetClasses: (state) => {
+      state.currentClass = null;
+      state.currentClassStats = null;
+      state.classesList = [];
+    }
+  },
   extraReducers: {
     [fetchOneClassAction.fulfilled]: (state, action) => {
       state.currentClass = action.payload;
@@ -46,5 +53,7 @@ const classSlice = createSlice({
     },
   },
 });
+
+export const { resetClasses } = classSlice.actions;
 
 export default classSlice.reducer;
