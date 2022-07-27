@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Chart } from "primereact/chart";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchOneClassStatisticsAction } from "../slices/classSlice";
 import "./Statistics.css";
 
 function Statistics() {
@@ -12,8 +11,7 @@ function Statistics() {
   const [basicData, setBasicData] = useState({});
 
   useEffect(() => {
-    if (!statistics && classUuid) dispatch(fetchOneClassStatisticsAction(classUuid));
-    else if (statistics && classUuid) {
+    if (statistics) {
       setBasicData({
         labels: Array(12)
           .fill(null)
@@ -75,19 +73,19 @@ function Statistics() {
         <div className="overview-stats">
           <div>
             <p>Total number of students:</p>
-            <p>{statistics?.totalStudentCount || "0"}</p>
+            <p>{statistics?.totalStudentCount ?? "0"}</p>
           </div>
           <div>
             <p>Average Class Presence Rate</p>
-            <p>{statistics?.averagePresenceRate || "0"}%</p>
+            <p>{statistics?.averagePresenceRate ?? "0"}%</p>
           </div>
           <div>
             <p>Average Class Good Performance Rate</p>
-            <p>{statistics?.averageGoodPerfRate || "0"}%</p>
+            <p>{statistics?.averageGoodPerfRate ?? "0"}%</p>
           </div>
           <div>
             <p>Average Class Good Behaviour Rate</p>
-            <p>{statistics?.averageGoodBehaveRate || "0"}%</p>
+            <p>{statistics?.averageGoodBehaveRate ?? "0"}%</p>
           </div>
         </div>
         <Chart type="bar" data={basicData} options={basicOptions} />

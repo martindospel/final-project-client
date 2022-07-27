@@ -18,5 +18,5 @@
 .header__buttons {
     display: flex;
     justify-content: space-evenly;
-    flex-direction: column;
+    gap: 10px;
 }

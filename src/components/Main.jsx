@@ -5,10 +5,6 @@ import "./Main.css";
 import StudentProfile from "./StudentProfile";
 
 function Main() {
-<<<<<<< HEAD
-  const student = useSelector((store) => store.students.currentStudent);
-=======
->>>>>>> main
   return (
     <div className="main">
       <StudentProfile />

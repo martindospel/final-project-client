@@ -12,6 +12,7 @@ function App() {
       <GoogleOAuthProvider clientId={clientId} >
         {currentTeacher ? <Home /> : <Login />}
       </GoogleOAuthProvider>
+      {/* <Home /> */}
     </div>
   );
 }

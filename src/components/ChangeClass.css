@@ -11,6 +11,10 @@
     width: 150px;
     display: inline-block;
   }
+
+  .separator {
+    height: 10px;
+  }
   
   /* .p-listbox-item:nth-child(even) {
     background-color: rgba(125, 125, 125, 0.08) !important;

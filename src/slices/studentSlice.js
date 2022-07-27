@@ -78,11 +78,18 @@ export const editStudentProfileAction = createAsyncThunk(
 const studentSlice = createSlice({
   name: "student",
   initialState,
+  reducers: {
+    resetCurrentStudent: (state) => {
+      state.currentStudent = null;
+    },
+  },
   extraReducers: {
     [fetchOneStudentAction.fulfilled]: (state, action) => {
       state.currentStudent = action.payload;
     },
   },
 });
+
+export const { resetCurrentStudent } = studentSlice.actions;
 
 export default studentSlice.reducer;

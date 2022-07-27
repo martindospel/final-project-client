@@ -28,7 +28,7 @@ function StudentProfile() {
           studentUuid: student.uuid,
           profile: {
             studentName,
-            dob: dob.toLocaleString(),
+            dob: dob.toISOString(),
             gender,
             emergencyContact: {
               number: emergencyNum,

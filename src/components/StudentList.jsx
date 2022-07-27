@@ -4,21 +4,16 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
-import AddClass from "./AddClass";
 import { useSelector, useDispatch } from "react-redux";
 import { addStudentAction, fetchOneStudentAction } from "../slices/studentSlice";
-<<<<<<< HEAD
-import "./AddClass.css";
-=======
-import "./StudentList.css";
 import DeleteStudent from "./DeleteStudent";
->>>>>>> main
+import "./StudentList.css";
 
 function StudentList() {
   const dispatch = useDispatch();
 
   const [nameValue, setNameValue] = useState("");
-  const [dobValue, setDobValue] = useState("");
+  const [dobValue, setDobValue] = useState(new Date());
   const [genderValue, setGenderValue] = useState("");
   const [showAddStudent, setShowAddStudent] = useState(false);
 
@@ -32,7 +27,7 @@ function StudentList() {
       addStudentAction({
         classUuid: currentClass,
         studentName: nameValue,
-        dob: dobValue.toLocaleString(),
+        dob: dobValue.toISOString(),
         gender: genderValue,
       })
     );
@@ -45,7 +40,6 @@ function StudentList() {
   return (
     <nav className="nav">
       <div className="nav__options">
-        <Button className="nav__btn p-button-sm" label="Change class" icon="pi pi-sitemap" />
         <Button className="nav__btn p-button-sm" label="Add student" onClick={() => setShowAddStudent(true)} icon="pi pi-plus" />
       </div>
       <div className="student-list">
@@ -104,9 +98,6 @@ function StudentList() {
           </div>
         </div>
       </Dialog>
-      
-      <AddClass />
-      <ListBox />
     </nav>
   );
 }

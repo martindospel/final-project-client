@@ -19,6 +19,11 @@ export const signupTeacherAction = createAsyncThunk("signupTeacher", async ({ fu
 const teacherSlice = createSlice({
   name: "teachers",
   initialState,
+  reducers: {
+    resetTeacher: (state) => {
+      state.currentTeacher = null;
+    },
+  },
   extraReducers: {
     [loginTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
@@ -31,5 +36,7 @@ const teacherSlice = createSlice({
     },
   },
 });
+
+export const { resetTeacher } = teacherSlice.actions;
 
 export default teacherSlice.reducer;

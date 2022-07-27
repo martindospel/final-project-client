@@ -4,7 +4,7 @@ import { ToggleButton } from "primereact/togglebutton";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Calendar } from "primereact/calendar";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../slices/classSlice";
+import { addToStudentTimelineAction, editStudentTimelineAction } from "../slices/studentSlice";
 import "./Form.css";
 import { useEffect } from "react";
 
