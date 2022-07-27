@@ -3,32 +3,32 @@ import teacherBloc from "../bloc/teacherBloc";
 
 const initialState = {
   currentTeacher: null,
+  loginRejected: false,
 };
 
 // get one teacher
-export const fetchOneTeacherAction = createAsyncThunk(
-  "fetchteacher",
-  async (uuid) => {
-    return await teacherBloc.fetchOneTeacher(uuid);
-  }
-);
+export const loginTeacherAction = createAsyncThunk("loginTeacher", async (accessToken) => {
+  return await teacherBloc.loginTeacher(accessToken);
+});
 
-// add one teacher 
-export const addOneTeacherAction = createAsyncThunk("addTeacher", async ({fullName, email}) => {
-    return await teacherBloc.addOneTeacher(fullName, email);
-  }
-);
+// add one teacher
+export const signupTeacherAction = createAsyncThunk("signupTeacher", async ({ fullName, accessToken }) => {
+  return await teacherBloc.signupTeacher(fullName, accessToken);
+});
 
 const teacherSlice = createSlice({
   name: "teachers",
   initialState,
   extraReducers: {
-    [fetchOneTeacherAction.fulfilled]: (state, action) => {
+    [loginTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
     },
-    [addOneTeacherAction.fulfilled]: (state, action) => {
+    [loginTeacherAction.rejected]: (state) => {
+      state.loginRejected = true;
+    },
+    [signupTeacherAction.fulfilled]: (state, action) => {
       state.currentTeacher = action.payload;
-    }
+    },
   },
 });
 

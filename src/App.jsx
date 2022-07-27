@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { clientId } from './config'
 
 function App() {
-  const currentTeacher = useSelector(store => store?.teachers?.currentTeacher)
+  const currentTeacher = useSelector(store => store?.teacher?.currentTeacher)
   return (
     <div>
       <GoogleOAuthProvider clientId={clientId} >
