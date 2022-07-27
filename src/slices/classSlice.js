@@ -12,12 +12,29 @@ export const fetchOneClassAction = createAsyncThunk(
   }
 );
 
+export const createClassAction = createAsyncThunk(
+  "createOneClass",
+  async ({teacherUuid, className}, thunkAPI) => {
+    return await classBloc.createOneClass(teacherUuid, className);
+  }
+);
+
+export const fetchAllClassesAction = createAsyncThunk(
+  "fetchAllClasses",
+  async (teacherUuid) => {
+    return await classBloc.fetchAllClassesForATeacher(teacherUuid);
+  }
+);
+
 const classSlice = createSlice({
   name: "class",
   initialState,
   extraReducers: {
     [fetchOneClassAction.fulfilled]: (state, action) => {
       state.currentClass = action.payload;
+    },
+    [fetchAllClassesAction.fulfilled]: (state, action) => {
+      state.currentClass.students = action.payload;
     },
   },
 });

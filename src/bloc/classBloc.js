@@ -6,12 +6,15 @@ export default (function () {
       const res = await fetch(`${baseUrl}api/classes/${uuid}`);
       return res.json();
     },
-    addStudentToClass: async (uuid, studentUuid) => {
-      await fetch(`${baseUrl}api/classes/${uuid}`, {
+
+    createOneClass: async (teacherUuid, className) => {
+      await fetch(`${baseUrl}api/add/${teacherUuid}`), {
         method: "post",
-        body: JSON.stringify({ uuid: studentUuid }),
-        headers: { "Content-Type": "application/json" },
-      });
+        body: JSON.stringify({className}),
+        headers: {"Content-Type": "application/json" },
+      }
+      return res.json();
     },
+
   };
 })();

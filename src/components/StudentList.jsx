@@ -4,9 +4,10 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
+import AddClass from "./AddClass";
 import { useSelector, useDispatch } from "react-redux";
 import { addStudentAction, fetchOneStudentAction } from "../slices/studentSlice";
-import "./StudentList.css";
+import "./AddClass.css";
 
 function StudentList() {
   const dispatch = useDispatch();
@@ -98,6 +99,9 @@ function StudentList() {
           </div>
         </div>
       </Dialog>
+      
+      <AddClass />
+      <ListBox />
     </nav>
   );
 }
