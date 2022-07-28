@@ -6,6 +6,10 @@
   font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   height: 2px;
   width: 5px;
