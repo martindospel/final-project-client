@@ -1,7 +1,7 @@
 # final-project
 
 ## About
-This is __bold text__ (Click here)[https://track-mate.netlify.app]
+This is __bold text__ [Click here](https://track-mate.netlify.app)
 
 
 ## Demo
