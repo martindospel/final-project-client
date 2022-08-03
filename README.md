@@ -5,6 +5,8 @@ Often working as a teacher, you have a lot of paperwork to do!... And you can on
 
 This project is a graduation project written by pepper.js mob in the last two weeks of </salt> Javascript Developer bootcamp to tackle our abilities after going through 3 months of intensive course.
 
+This is the client part written in react, to see the how we set up the server check out here [Server](https://github.com/martindospel/final-project-server).
+
 ## Demo
 Check a live demo of this app at [this link](https://track-mate.netlify.app).
 
