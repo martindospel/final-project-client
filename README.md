@@ -21,7 +21,7 @@ Check a live demo of this app at [this link](https://track-mate.netlify.app).
 * Sayed Murtaza Muttahary [GitHub](https://github.com/sayedmurtaza24)
 * Samira Tavakolli [GitHub](https://github.com/samiracode)
 * Martin Dospel [GitHub](https://github.com/martindospel)
-* Darko Jecinac [GitHub](https://github.com/silv3rius12)
+* Darko Jecinac [GitHub](https://github.com/jecinacDarko)
 
 ## License
 MIT
