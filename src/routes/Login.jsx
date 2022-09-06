@@ -61,7 +61,7 @@ export default function Login() {
         <h1 className="entry-page__title">Welcome to TrackMate!</h1>
         {!isRejected ? (
           <>
-            <p>Login with your Google Account, if you didn't have account it will switch to sign up!</p>
+            <p>Login with your Google Account. If you didn't have an account, you can sign up!</p>
             <div className="entry-page__inputs">
               <Button icon="pi pi-google" onClick={login} label="Login with Google" />
             </div>
@@ -71,7 +71,7 @@ export default function Login() {
         )}
         {isRejected ? (
           <>
-            <p>You don't have an account, write your name down below to make one!</p>
+            <p>You don't have an account yet. Please write your name down below to make one!</p>
             <InputText style={{ margin: "5px" }} ref={teacherNameInput} type="text" placeholder="Write your full name..." />
             <Button onClick={signup} label="Make a new account" />
           </>
