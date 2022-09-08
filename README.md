@@ -1,7 +1,7 @@
 # Trackmate
 
 ## About
-Often working as a teacher, you have a lot of paperwork to do!... And you can only get so much information from papers... but what if all if that data was gathered in an application where you can visually see it, analyze it and make actual use of it? pretty typical in modern world isn't it? And yeah so we decided to help school teachers to track absence, performance and behaviour of their student easily and effortlessly...
+Often working as a teacher, you have a lot of paperwork to do!... And you can only get so much information from papers... but what if all if that data was gathered in an application where you can visually see it, analyze it and make actual use of it? Pretty typical in the modern world isn't it? We decided to help school teachers to track absence, performance and behaviour of their student easily and effortlessly.
 
 This project is a graduation project written by pepper.js mob in the last two weeks of </salt> Javascript Developer bootcamp to tackle our abilities after going through 3 months of intensive course.
 
